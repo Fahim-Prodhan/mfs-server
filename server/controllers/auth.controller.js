@@ -57,7 +57,7 @@ export const login = async (req, res) => {
 
     // Check if password is correct
     const passwordMatch = await bcrypt.compare(password, user.pin);
-    console.log(passwordMatch);
+    // console.log(passwordMatch);
     if (!passwordMatch) {
       return res.status(400).json({ error: "Invalid username or password" });
     }
@@ -97,6 +97,7 @@ export const getUserById = async (req, res) => {
     res.status(200).json({
       _id: user._id,
       name: user.name,
+      phone: user.phone,
       email: user.email,
       role: user.role,
       isActive: user.isActive,
@@ -111,7 +112,7 @@ export const getUserById = async (req, res) => {
 
 export const getAllUsers = async (req, res) => {
   try {
-    const { page = 1, limit = 10, role, search } = req.query;
+    const { page = 1, limit = 100, role, search } = req.query;
 
     // Construct query object based on role and search criteria
     const query = {};
