@@ -20,20 +20,23 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "user",
     },
-    email:{
-      type:String,
-      required:true,
-      unique:true, // Ensures uniqueness of emails
+    email: {
+      type: String,
+      required: true,
+      unique: true, // Ensures uniqueness of emails
     },
-    isActive:{
-      type:String,
-      default:"pending"
+    isActive: {
+      type: String,
+      default: "pending",
     },
-    profilePic:{
-      type:String,
-      default: "https://i.ibb.co/MkqW6tC/man.png"
-    }
-    
+    profilePic: {
+      type: String,
+      default: "https://i.ibb.co/MkqW6tC/man.png",
+    },
+    balance: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
